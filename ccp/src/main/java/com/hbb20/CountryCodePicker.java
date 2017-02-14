@@ -57,7 +57,7 @@ public class CountryCodePicker extends RelativeLayout {
     CountryCodePicker codePicker;
     boolean hideNameCode = false;
     boolean showFlag = true;
-    boolean showFullName = false;
+    boolean showFullName = true;
     boolean useFullName = false;
     int contentColor;
     List<Country> preferredCountries;
@@ -236,7 +236,7 @@ public class CountryCodePicker extends RelativeLayout {
 
         if (!hideNameCode) {
             if (showFullName) {
-                textView_selectedCountry.setText(selectedCountry.getName().toUpperCase() + "  +" + selectedCountry.getPhoneCode());
+                textView_selectedCountry.setText(selectedCountry.getName().toUpperCase());
             } else {
                 textView_selectedCountry.setText("(" + selectedCountry.getNameCode().toUpperCase() + ")  +" + selectedCountry.getPhoneCode());
             }
@@ -473,69 +473,11 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
-        switch (customLanguage) {
-            case ARABIC:
-                return "حدد الدولة";
-            case BENGALI:
-                return "দেশ নির্বাচন করুন";
-            case CHINESE:
-                return "选择国家";
-            case ENGLISH:
-                return "Select country";
-            case FRENCH:
-                return "Sélectionner le pays";
-            case GERMAN:
-                return "Land auswählen";
-            case GUJARATI:
-                return "દેશ પસંદ કરો";
-            case HINDI:
-                return "देश चुनिए";
-            case JAPANESE:
-                return "国を選択";
-            case JAVANESE:
-                return "Pilih negara";
-            case PORTUGUESE:
-                return "Selecione o pais";
-            case RUSSIAN:
-                return "Выберите страну";
-            case SPANISH:
-                return "Seleccionar país";
-            default:
-                return "Select country";
-        }
+        return "Select country";
     }
 
     String getSearchHintText() {
-        switch (customLanguage) {
-            case ARABIC:
-                return "بحث";
-            case BENGALI:
-                return "অনুসন্ধান...";
-            case CHINESE:
-                return "搜索...";
-            case ENGLISH:
-                return "search...";
-            case FRENCH:
-                return "chercher ...";
-            case GERMAN:
-                return "Suche...";
-            case GUJARATI:
-                return "શોધ કરો ...";
-            case HINDI:
-                return "खोज करें ...";
-            case JAPANESE:
-                return "サーチ...";
-            case JAVANESE:
-                return "search ...";
-            case PORTUGUESE:
-                return "pesquisa ...";
-            case RUSSIAN:
-                return "поиск ...";
-            case SPANISH:
-                return "buscar ...";
-            default:
-                return "Search...";
-        }
+        return "Search...";
     }
 
 
@@ -548,36 +490,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
 
     String getNoResultFoundText() {
-        switch (customLanguage) {
-            case ARABIC:
-                return "يؤدي لم يتم العثور";
-            case BENGALI:
-                return "ফলাফল পাওয়া যায়নি";
-            case CHINESE:
-                return "结果未发现";
-            case ENGLISH:
-                return "result not found";
-            case FRENCH:
-                return "résulte pas trouvé";
-            case GERMAN:
-                return "Folge nicht gefunden";
-            case GUJARATI:
-                return "પરિણામ મળ્યું નથી";
-            case HINDI:
-                return "परिणाम नहीं मिला";
-            case JAPANESE:
-                return "結果として見つかりません。";
-            case JAVANESE:
-                return "kasil ora ketemu";
-            case PORTUGUESE:
-                return "resultar não encontrado";
-            case RUSSIAN:
-                return "результат не найден";
-            case SPANISH:
-                return "como resultado que no se encuentra";
-            default:
-                return "No result found";
-        }
+        return "No result found";
     }
 
     /**

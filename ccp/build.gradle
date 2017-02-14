@@ -2,29 +2,27 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'ccp'
+    bintrayName = 'country-picker-ubl'
 
-    publishedGroupId = 'com.hbb20'
-    libraryName = 'CountryCodePicker'
+    publishedGroupId = 'com.olympicsoftware'
+    libraryName = 'CountryPickerUBL'
     artifact = 'ccp'
 
-    libraryDescription = 'Country Code Picker (CCP) is an android library which provides an easy way to search and select international country code for the phone number.'
+    libraryDescription = 'A country picker using UBL countries on Android'
 
-    siteUrl = 'https://github.com/hbb20/CountryCodePickerProject'
-    gitUrl = 'https://github.com/hbb20/CountryCodePickerProject.git'
+    siteUrl = 'https://github.com/olympicsoftware/CountryCodePickerProject'
+    gitUrl = 'https://github.com/olympicsoftware/CountryCodePickerProject.git'
 
-    libraryVersion = '1.7.1'
+    libraryVersion = '0.0.1'
 
-    developerId = 'hbb20'
-    developerName = 'Harsh Bhakta'
-    developerEmail = 'harshbbhakta@gmail.com'
+    developerId = 'icbmike'
+    developerName = 'Timothy Hughes'
+    developerEmail = 'timothyh@olympic.co.nz'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
-
 }
-
 
 android {
     compileSdkVersion 25
@@ -42,8 +40,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-//    tasks.withType(Javadoc).all { enabled = false }
 }
 
 dependencies {
@@ -56,10 +52,3 @@ dependencies {
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-
-/**
- * While uploading,
- * ./gradlew install
- *
- * ./gradlew bintrayUpload
- */
