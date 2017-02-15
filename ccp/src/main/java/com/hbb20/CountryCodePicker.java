@@ -30,15 +30,23 @@ public class CountryCodePicker extends RelativeLayout {
     boolean hideNameCode = false;
     boolean showFullName = true;
     List<Country> preferredCountries;
-    List<Country> customMasterCountriesList;
     Language customLanguage = Language.ENGLISH;
     boolean keyboardAutoPopOnSearch = true;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            requestFocus();
             CountryCodeDialog.openCountryCodeDialog(codePicker);
         }
     };
+
+    public String getName(){
+        return selectedCountry.getName();
+    }
+
+    public Country getSelectedCountry(){
+        return selectedCountry;
+    }
 
     private OnCountryChangeListener onCountryChangeListener;
 
@@ -61,6 +69,9 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void init(AttributeSet attrs) {
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+        setClickable(true);
         mInflater = LayoutInflater.from(context);
         holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
         textView_selectedCountry = (TextView) holderView.findViewById(R.id.textView_selectedCountry);
@@ -70,6 +81,12 @@ public class CountryCodePicker extends RelativeLayout {
         linearFlagHolder = (LinearLayout) holderView.findViewById(R.id.linear_flag_holder);
         codePicker = this;
         holder.setOnClickListener(countryCodeHolderClickListener);
+        setSelectedCountry("New Zealand");
+    }
+
+    public void setSelectedCountry(String country) {
+        selectedCountry = Country.getCountryForName(customLanguage, preferredCountries, country);
+        setSelectedCountry(selectedCountry);
     }
 
     void setSelectedCountry(Country selectedCountry) {

@@ -168,7 +168,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             if(country!=null) {
                 divider.setVisibility(View.GONE);
                 textView_name.setVisibility(View.VISIBLE);
-                textView_code.setVisibility(View.VISIBLE);
+                textView_code.setVisibility(View.GONE);
                 linearFlagHolder.setVisibility(View.VISIBLE);
                 textView_name.setText(country.getName() + " (" + country.getNameCode().toUpperCase() + ")");
                 textView_code.setText("+" + country.getPhoneCode());

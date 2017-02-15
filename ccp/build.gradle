@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/olympicsoftware/CountryCodePickerProject'
     gitUrl = 'https://github.com/olympicsoftware/CountryCodePickerProject.git'
 
-    libraryVersion = '0.0.4'
+    libraryVersion = '0.1.0'
 
     developerId = 'icbmike'
     developerName = 'Timothy Hughes'

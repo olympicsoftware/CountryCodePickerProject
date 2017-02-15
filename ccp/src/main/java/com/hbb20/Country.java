@@ -62,6 +62,26 @@ class Country {
         return getCountryForCode(language, preferredCountries, code + "");
     }
 
+    static Country getCountryForName(CountryCodePicker.Language language, List<Country> preferredCountries, String name) {
+        /**
+         * check in preferred countries
+         */
+        if (preferredCountries != null && !preferredCountries.isEmpty()) {
+            for (Country country : preferredCountries) {
+                if (country.getName().equalsIgnoreCase(name)) {
+                    return country;
+                }
+            }
+        }
+
+        for (Country country : getLibraryMasterCountryList(language)) {
+            if (country.getName().equalsIgnoreCase(name)) {
+                return country;
+            }
+        }
+        return null;
+    }
+
     /**
      * Returns image res based on country name code
      * @param country
@@ -77,6 +97,8 @@ class Country {
                 return R.drawable.flag_albania;
             case "dz": //algeria
                 return R.drawable.flag_algeria;
+            case "as": //american samoa
+                return R.drawable.flag_american_samoa;
             case "ad": //andorra
                 return R.drawable.flag_andorra;
             case "ao": //angola
@@ -143,8 +165,12 @@ class Country {
                 return R.drawable.flag_canary_islands;
             case "cv": //cape verde
                 return R.drawable.flag_cape_verde;
+            case "ky": //cayman islands
+                return R.drawable.flag_cayman_islands;
             case "cf": //central african republic
                 return R.drawable.flag_central_african_republic;
+            case "ea": //ceuta and melilla
+                return R.drawable.flag_ceuta_and_melilla;
             case "td": //chad
                 return R.drawable.flag_chad;
             case "cl": //chile
@@ -211,6 +237,8 @@ class Country {
                 return R.drawable.flag_france;
             case "re": //reunion
                 return R.drawable.flag_france;
+            case "mq": //martinique
+                return R.drawable.flag_france;
             case "mf": //st. martin
                 return R.drawable.flag_france;
             case "fr": //france
@@ -237,6 +265,8 @@ class Country {
                 return R.drawable.flag_greece;
             case "gl": //greenland
                 return R.drawable.flag_greenland;
+            case "gu": //guam
+                return R.drawable.flag_guam;
             case "gt": //guatemala
                 return R.drawable.flag_guatemala;
             case "gg": //guernsey
@@ -255,6 +285,8 @@ class Country {
                 return R.drawable.flag_hong_kong;
             case "hu": //hungary
                 return R.drawable.flag_hungary;
+            case "is": //iceland
+                return R.drawable.flag_iceland;
             case "in": //india
                 return R.drawable.flag_india;
             case "id": //indonesia
@@ -367,6 +399,8 @@ class Country {
                 return R.drawable.flag_nigeria;
             case "nu": //niue
                 return R.drawable.flag_niue;
+            case "nf": //norfolk island
+                return R.drawable.flag_norfolk_island;
             case "kp": //north korea
                 return R.drawable.flag_north_korea;
             case "mp": //northern mariana islands
@@ -441,6 +475,8 @@ class Country {
                 return R.drawable.flag_somalia;
             case "za": //south africa
                 return R.drawable.flag_south_africa;
+            case "gs": //south georgia and south sandwich islands
+                return R.drawable.flag_south_georgia;
             case "kr": //south korea
                 return R.drawable.flag_south_korea;
             case "ss": //south sudan
