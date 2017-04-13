@@ -53,22 +53,22 @@ public class CountryCodePicker extends RelativeLayout {
     public CountryCodePicker(Context context) {
         super(context);
         this.context = context;
-        init(null);
+        init();
     }
 
     public CountryCodePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        init(attrs);
+        init();
     }
 
     public CountryCodePicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        init(attrs);
+        init();
     }
 
-    private void init(AttributeSet attrs) {
+    private void init() {
         setFocusable(true);
         setFocusableInTouchMode(true);
         setClickable(true);
@@ -85,13 +85,16 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     public void setSelectedCountry(String country) {
-        selectedCountry = Country.getCountryForName(customLanguage, preferredCountries, country);
-        setSelectedCountry(selectedCountry);
+        Country countryForName = Country.getCountryForName(customLanguage, preferredCountries, country);
+        if(countryForName != null) {
+            selectedCountry = countryForName;
+            setSelectedCountry(selectedCountry);
+        }
     }
 
     void setSelectedCountry(Country selectedCountry) {
         this.selectedCountry = selectedCountry;
-        //as soon as country is selected, textView should be updated
+        // as soon as country is selected, textView should be updated
         if (selectedCountry == null) {
             selectedCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode);
         }
