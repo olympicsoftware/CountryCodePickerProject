@@ -133,6 +133,10 @@ public class CountryCodePicker extends RelativeLayout {
         return "No result found";
     }
 
+    public void setOnCountryChangeListener(OnCountryChangeListener onCountryChangeListener) {
+        this.onCountryChangeListener = onCountryChangeListener;
+    }
+
     /**
      * Update every time new language is supported #languageSupport
      */
